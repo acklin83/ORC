@@ -26,6 +26,8 @@ SSL 360° has to be closed while ORC uses the UF1.
 3. Open the disk image and drag ORC to Applications.
 4. Quit SSL 360°, connect the UF1, start ORC.
 
+The UF1 shows the channels TotalMix shows: hide a channel there and ORC skips it.
+
 The [manual](https://acklin83.github.io/ORC/#setup) has the details.
 
 ## With Rea-Sixty
