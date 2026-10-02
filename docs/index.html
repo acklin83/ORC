@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ORC Manual</title>
-<meta name="description" content="ORC 1.2.0: the SSL UF1 as a remote control for RME TotalMix FX on the Mac.">
+<meta name="description" content="ORC 1.2.1: the SSL UF1 as a remote control for RME TotalMix FX on the Mac.">
 <!--
   ⇨ SOURCE OF THE ORC MANUAL. Built by extension/tools/orc_manual.py, which
   fills every double-brace token and GEN block from the code ORC runs and fails when a
@@ -89,7 +89,7 @@ svg a:hover .knob, svg a:focus .knob { fill: var(--accent); }
 <div class="wrap">
 <nav class="toc" aria-label="Contents">
   <h1>ORC</h1>
-  <p class="ver">Open Remote Control · version 1.2.0</p>
+  <p class="ver">Open Remote Control · version 1.2.1</p>
   <input id="q" type="search" placeholder="Search the manual" aria-label="Search the manual">
   <ol>
     <li><a href="#what">What ORC does</a></li>
@@ -179,7 +179,7 @@ TotalMix view at all.</p>
 <p>ORC has no Dock icon and no window of its own until you open the settings. Its menu bar item
 holds these lines:</p>
 <div class="tw"><table class="data"><tbody>
-<tr><th>ORC 1.2.0</th><td>The version. When ORC does not run from Applications, the folder
+<tr><th>ORC 1.2.1</th><td>The version. When ORC does not run from Applications, the folder
 it runs from follows, so a second copy is told apart.</td></tr>
 <tr><th>UF1</th><td><em>held by ORC</em> and the unit's serial number, or <em>not open</em> and the
 reason ORC was given. ORC tries again every two seconds, so a UF1 plugged in later or let go by
@@ -464,9 +464,9 @@ yourself or one of two lists TotalMix keeps:</p>
 <ul><li><strong>Bank 1</strong>: 1 <code>Dim</code> (Dim main output), 2 <code>Mono</code> (Main output mono), 3 <code>Speaker B</code> (Speaker B), 4 <code>Talkback</code> (Talkback), 5 <code>Ext In</code> (External input), 6 <code>Main</code> (Main on the fader), 7 <code>TotalMix</code> (Show the TotalMix window).</li><li><strong>Bank 2</strong>: TotalMix' eight snapshots, keys 1 to 4 on the first half and 5 to 8 on the second.</li><li><strong>Bank 3</strong>: TotalMix' eight layouts, keys 1 to 4 on the first half and 5 to 8 on the second.</li></ul>
 <p>Every bank, key, label and action is set on the settings page <a href="#set-softkeys">Soft Keys</a>.</p>
 <h3 id="actions">Actions</h3>
-<p>What a soft key or a transport key can do, 14 actions. A <em>switch</em> turns something
+<p>What a soft key or a transport key can do, 15 actions. A <em>switch</em> turns something
 on and off and its key is lit while on; a <em>press</em> does one thing each time.</p>
-<div class="tw"><table class="data"><thead><tr><th>Action</th><th>Key label</th><th>Kind</th><th>What it does</th></tr></thead><tbody><tr><td>Dim main output</td><td><code>Dim</code></td><td>switch</td><td>Dims TotalMix&#x27; Main output by the Dim amount set in TotalMix, or lifts the dim. The lamp follows what TotalMix reports.</td></tr><tr><td>DuRec next file</td><td><code>DuRec Next</code></td><td>press</td><td>Goes to the next DuRec file.</td></tr><tr><td>DuRec pause</td><td><code>DuRec Pause</code></td><td>press</td><td>Pauses DuRec.</td></tr><tr><td>DuRec play</td><td><code>DuRec Play</code></td><td>press</td><td>Plays the current DuRec file.</td></tr><tr><td>DuRec previous file</td><td><code>DuRec Prev</code></td><td>press</td><td>Goes to the previous DuRec file.</td></tr><tr><td>DuRec record</td><td><code>DuRec Rec</code></td><td>press</td><td>Starts a DuRec recording.</td></tr><tr><td>DuRec stop</td><td><code>DuRec Stop</code></td><td>press</td><td>Stops DuRec.</td></tr><tr><td>External input</td><td><code>Ext In</code></td><td>switch</td><td>Switches TotalMix&#x27; Main output to the external input and back.</td></tr><tr><td>Main on the fader</td><td><code>Main</code></td><td>press</td><td>Puts TotalMix&#x27; Main output on the UF1 fader in the RME side-car. The lamp is lit while Main is on the fader.</td></tr><tr><td>Main output mono</td><td><code>Mono</code></td><td>switch</td><td>Switches TotalMix&#x27; Main output to mono and back.</td></tr><tr><td>Mute FX</td><td><code>Mute FX</code></td><td>switch</td><td>Mutes TotalMix&#x27; reverb and echo on the Main output, or lets them through again. The lamp follows what TotalMix reports.</td></tr><tr><td>Show the TotalMix window</td><td><code>TotalMix</code></td><td>switch</td><td>Shows or hides the TotalMix window. TotalMix says nothing about its own window, so the lamp is what we last sent.</td></tr><tr><td>Speaker B</td><td><code>Speaker B</code></td><td>switch</td><td>Switches TotalMix&#x27; Main output between Main and Speaker B.</td></tr><tr><td>Talkback</td><td><code>Talkback</code></td><td>switch</td><td>Talkback in TotalMix, on or off.</td></tr></tbody></table></div>
+<div class="tw"><table class="data"><thead><tr><th>Action</th><th>Key label</th><th>Kind</th><th>What it does</th></tr></thead><tbody><tr><td>Dim main output</td><td><code>Dim</code></td><td>switch</td><td>Dims TotalMix&#x27; Main output by the Dim amount set in TotalMix, or lifts the dim. The lamp follows what TotalMix reports.</td></tr><tr><td>DuRec next file</td><td><code>DuRec Next</code></td><td>press</td><td>Goes to the next DuRec file.</td></tr><tr><td>DuRec pause</td><td><code>DuRec Pause</code></td><td>press</td><td>Pauses DuRec.</td></tr><tr><td>DuRec play</td><td><code>DuRec Play</code></td><td>press</td><td>Plays the current DuRec file.</td></tr><tr><td>DuRec previous file</td><td><code>DuRec Prev</code></td><td>press</td><td>Goes to the previous DuRec file.</td></tr><tr><td>DuRec record</td><td><code>DuRec Rec</code></td><td>press</td><td>Starts a DuRec recording.</td></tr><tr><td>DuRec stop</td><td><code>DuRec Stop</code></td><td>press</td><td>Stops DuRec.</td></tr><tr><td>External input</td><td><code>Ext In</code></td><td>switch</td><td>Switches TotalMix&#x27; Main output to the external input and back.</td></tr><tr><td>Main on the fader</td><td><code>Main</code></td><td>press</td><td>Puts TotalMix&#x27; Main output on the UF1 fader in the RME side-car. The lamp is lit while Main is on the fader.</td></tr><tr><td>Main output mono</td><td><code>Mono</code></td><td>switch</td><td>Switches TotalMix&#x27; Main output to mono and back.</td></tr><tr><td>Mute FX</td><td><code>Mute FX</code></td><td>switch</td><td>Mutes TotalMix&#x27; reverb and echo on the Main output, or lets them through again. The lamp follows what TotalMix reports.</td></tr><tr><td>Show the TotalMix window</td><td><code>TotalMix</code></td><td>switch</td><td>Shows or hides the TotalMix window. TotalMix says nothing about its own window, so the lamp is what we last sent.</td></tr><tr><td>Sleep the surface now</td><td><code>Sleep</code></td><td>switch</td><td>Darkens every connected surface at once. Press again, or touch anything on any surface, to bring them back; that first press or turn only wakes and does nothing else.</td></tr><tr><td>Speaker B</td><td><code>Speaker B</code></td><td>switch</td><td>Switches TotalMix&#x27; Main output between Main and Speaker B.</td></tr><tr><td>Talkback</td><td><code>Talkback</code></td><td>switch</td><td>Talkback in TotalMix, on or off.</td></tr></tbody></table></div>
 </section>
 
 <section id="settings">
@@ -492,6 +492,11 @@ Select (put it on the fader), Mute or Nothing.</td></tr>
 <tr><th>Jog wheel</th><td>The jog wheel's target.</td></tr>
 <tr><th>Jog step</th><td>dB per step of the jog wheel.</td></tr>
 <tr><th>Pot step</th><td>dB per step of the four pots in the overview.</td></tr>
+<tr><th>Sleep when idle, After</th><td>Off out of the box. On, the UF1 goes dark after this many
+minutes (1 to 99) without a touch. It keeps running behind the dark panel, so it wakes with the same
+picture. Whatever you touch first only wakes it: that key or that turn does nothing else. A hand on
+the fader works at once. The action <em>Sleep the surface now</em> puts it to sleep from a key;
+press it again, or touch anything, to wake it.</td></tr>
 </tbody></table></div>
 <p class="note">A role follows TotalMix: when a snapshot moves Phones 1 to another output, the pot
 follows it. A role TotalMix has not given to any output reads <em>not assigned</em>, and one this
@@ -504,7 +509,7 @@ remote cannot see reads <em>hidden</em>.</p>
 <tr><th>Label, Action</th><td>Per key: what the screen says and what a press does. An empty label
 takes the action's own.</td></tr>
 <tr><th>Active, Inactive</th><td>Per key: the lamp's colour while its action is on, and otherwise.
-<em>Off</em> leaves the lamp dark. A bank of snapshots or layouts lights its keys white.</td></tr>
+<em>Off</em> leaves the lamp dark. On a bank of snapshots or layouts, Active is the snapshot or layout that is loaded and Inactive the others; without a colour of their own the keys are white.</td></tr>
 <tr><th>Factory set for this bank</th><td>Puts this bank back the way it came.</td></tr>
 <tr><th>Transport</th><td>An action and the two lamp colours for each of the five transport keys.</td></tr>
 </tbody></table></div>
