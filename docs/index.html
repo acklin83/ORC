@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ORC Manual</title>
-<meta name="description" content="ORC 1.2.2: the SSL UF1 as a remote control for RME TotalMix FX on the Mac.">
+<meta name="description" content="ORC 1.2.3: the SSL UF1 as a remote control for RME TotalMix FX on the Mac.">
 <!--
   ⇨ SOURCE OF THE ORC MANUAL. Built by extension/tools/orc_manual.py, which
   fills every double-brace token and GEN block from the code ORC runs and fails when a
@@ -89,7 +89,7 @@ svg a:hover .knob, svg a:focus .knob { fill: var(--accent); }
 <div class="wrap">
 <nav class="toc" aria-label="Contents">
   <h1>ORC</h1>
-  <p class="ver">Open Remote Control · version 1.2.2</p>
+  <p class="ver">Open Remote Control · version 1.2.3</p>
   <input id="q" type="search" placeholder="Search the manual" aria-label="Search the manual">
   <ol>
     <li><a href="#what">What ORC does</a></li>
@@ -182,7 +182,7 @@ TotalMix view at all.</p>
 <p>ORC has no Dock icon and no window of its own until you open the settings. Its menu bar item
 holds these lines:</p>
 <div class="tw"><table class="data"><tbody>
-<tr><th>ORC 1.2.2</th><td>The version. When ORC does not run from Applications, the folder
+<tr><th>ORC 1.2.3</th><td>The version. When ORC does not run from Applications, the folder
 it runs from follows, so a second copy is told apart.</td></tr>
 <tr><th>UF1</th><td><em>held by ORC</em> and the unit's serial number, or <em>not open</em> and the
 reason ORC was given. ORC tries again every two seconds, so a UF1 plugged in later or let go by
@@ -479,7 +479,8 @@ on and off and its key is lit while on; a <em>press</em> does one thing each tim
 <div class="tw"><table class="data"><tbody>
 <tr><th>Talk to TotalMix</th><td>The link on or off.</td></tr>
 <tr><th>Open at login</th><td>Starts ORC when you log in. macOS may ask you to allow it once; ORC
-then opens the right place in System Settings.</td></tr>
+then opens the right place in System Settings. Only for ORC in Applications: macOS starts the
+copy that ticked it.</td></tr>
 <tr><th>Host</th><td>Where TotalMix runs. <code>127.0.0.1</code> is this Mac.</td></tr>
 <tr><th>Send to port</th><td>TotalMix' <em>Port incoming</em>, out of the box 7005.</td></tr>
 <tr><th>Listen on port</th><td>TotalMix' <em>Port outgoing</em>, out of the box 7006.</td></tr>
