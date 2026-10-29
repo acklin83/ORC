@@ -2,7 +2,9 @@
 
 ORC turns an SSL UF1 into a remote control for RME TotalMix FX. The fader, the pots and the keys
 move TotalMix directly, and the two screens show what TotalMix is doing: channel names and colours,
-levels, the EQ, reverb and echo. ORC runs in the menu bar and needs no DAW.
+levels, the EQ, reverb and echo. With an SSL UF8 next to it, or on its own, the UF8 shows eight
+TotalMix channels on its faders, or drives Philips Hue lamps and DynaMount mic stands, and OBS
+scenes can sit on the soft keys. ORC runs in the menu bar and needs no DAW.
 
 ORC is free.
 
@@ -12,10 +14,10 @@ ORC is free.
 ## What you need
 
 - A Mac with macOS 13 or later, Apple silicon or Intel.
-- An SSL UF1, connected by USB.
+- An SSL UF1, an SSL UF8, or both, connected by USB.
 - An RME interface with TotalMix FX 2.1 or later.
 
-SSL 360° has to be closed while ORC uses the UF1.
+SSL 360° has to be closed while ORC uses the surfaces.
 
 ## Setting up
 
@@ -24,7 +26,7 @@ SSL 360° has to be closed while ORC uses the UF1.
 2. Pick a free remote, tick *In Use*, and set IP `127.0.0.1`, *Port incoming* `7005`,
    *Port outgoing* `7006`. For the meters on the UF1, switch *Send Peak Level* on too.
 3. Open the disk image and drag ORC to Applications.
-4. Quit SSL 360°, connect the UF1, start ORC.
+4. Quit SSL 360°, connect the UF1 or the UF8, start ORC.
 
 The UF1 shows the channels TotalMix shows: hide a channel there and ORC skips it.
 
@@ -33,8 +35,9 @@ The [manual](https://acklin83.github.io/ORC/#setup) has the details.
 ## With Rea-Sixty
 
 If you use [Rea-Sixty](https://github.com/acklin83/Rea-Sixty) in REAPER on the same Mac, REAPER
-takes the UF1 over from ORC when it starts and hands it back when it quits. This needs Rea-Sixty
-0.6.1 or later. See [ORC and Rea-Sixty](https://acklin83.github.io/ORC/#reasixty) in the manual.
+takes the UF1 and the UF8 over from ORC when it starts and hands them back when it quits, and Hue,
+DynaMount and OBS settings stay in step between the two. This needs Rea-Sixty 0.8.0 or later
+(0.6.1 or later for the UF1 alone). See [ORC and Rea-Sixty](https://acklin83.github.io/ORC/#reasixty) in the manual.
 
 ## Problems
 
