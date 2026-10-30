@@ -6,6 +6,10 @@ levels, the EQ, reverb and echo. With an SSL UF8 next to it, or on its own, the 
 TotalMix channels on its faders, or drives Philips Hue lamps and DynaMount mic stands, and OBS
 scenes can sit on the soft keys. ORC runs in the menu bar and needs no DAW.
 
+With MoreMe, musicians mix their own headphones on a phone or tablet: each picks Phones 1 to 4
+and sets level, pan, mute and solo of every source in that mix, in a web page. Nothing is installed
+on the phones.
+
 ORC is free.
 
 **[Download the latest version](https://github.com/acklin83/ORC/releases/latest)** ·
@@ -29,6 +33,9 @@ SSL 360° has to be closed while ORC uses the surfaces.
 4. Quit SSL 360°, connect the UF1 or the UF8, start ORC.
 
 The UF1 shows the channels TotalMix shows: hide a channel there and ORC skips it.
+
+MoreMe needs a second remote in TotalMix (ports 7003 and 7004) and is switched on in ORC's
+settings, page MoreMe. See [MoreMe](https://acklin83.github.io/ORC/#moreme) in the manual.
 
 The [manual](https://acklin83.github.io/ORC/#setup) has the details.
 

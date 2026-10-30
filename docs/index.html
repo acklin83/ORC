@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ORC Manual</title>
-<meta name="description" content="ORC 1.3.0: the SSL UF1 as a remote control for RME TotalMix FX on the Mac.">
+<meta name="description" content="ORC 1.5.0: the SSL UF1 as a remote control for RME TotalMix FX on the Mac.">
 <!--
   ⇨ SOURCE OF THE ORC MANUAL. Built by extension/tools/orc_manual.py, which
   fills every double-brace token and GEN block from the code ORC runs and fails when a
@@ -92,7 +92,7 @@ svg a:hover .knob, svg a:focus .knob { fill: var(--accent); }
 <div class="wrap">
 <nav class="toc" aria-label="Contents">
   <h1>ORC</h1>
-  <p class="ver">Open Remote Control · version 1.3.0</p>
+  <p class="ver">Open Remote Control · version 1.5.0</p>
   <input id="q" type="search" placeholder="Search the manual" aria-label="Search the manual">
   <ol>
     <li><a href="#what">What ORC does</a></li>
@@ -107,6 +107,7 @@ svg a:hover .knob, svg a:focus .knob { fill: var(--accent); }
     <li><a href="#uf8">The UF8, control by control</a></li>
     <li><a href="#uf8-chanview">The UF8's channel view</a></li>
     <li><a href="#uf8-modes">Hue, DynaMount and OBS on the UF8</a></li>
+    <li><a href="#moreme">MoreMe: headphone mixes on phones</a></li>
     <li><a href="#softkeys">Soft-key banks</a></li>
     <li class="sub"><a href="#actions">Actions</a></li>
     <li><a href="#settings">The settings window</a></li>
@@ -203,14 +204,17 @@ handover. <em>Import from REAPER</em> on the <a href="#set-modes">UF8 Modes</a> 
 <p>ORC has no Dock icon and no window of its own until you open the settings. Its menu bar item
 holds these lines:</p>
 <div class="tw"><table class="data"><tbody>
-<tr><th>ORC 1.3.0</th><td>The version. When ORC does not run from Applications, the folder
+<tr><th>ORC 1.5.0</th><td>The version. When ORC does not run from Applications, the folder
 it runs from follows, so a second copy is told apart.</td></tr>
-<tr><th>UF1</th><td><em>held by ORC</em> and the unit's serial number, or <em>not open</em> and the
+<tr><th>UF1</th><td><em>held by ORC</em> and the unit's serial number, <em>off</em>, or <em>not open</em> and the
 reason ORC was given. ORC tries again every two seconds, so a UF1 plugged in later or let go by
 another program is picked up by itself.</td></tr>
 <tr><th>UF8</th><td><em>held by ORC</em> and the unit's serial number, or <em>not open</em> and the reason. Tried again every two
 seconds like the UF1.</td></tr>
 <tr><th>TotalMix</th><td>The link to TotalMix, see <a href="#trouble">when something is off</a>.</td></tr>
+<tr><th>MoreMe</th><td>The headphone mixer (<a href="#moreme">MoreMe</a>): <em>off</em>, or how many
+phones are connected. While it is on, the address for the musicians and the PIN follow, and the
+address as a QR code to scan. A click on the address copies it.</td></tr>
 <tr><th>Settings…</th><td>Opens <a href="#settings">the settings window</a>.</td></tr>
 <tr><th>Manual</th><td>Opens this page.</td></tr>
 <tr><th>Quit ORC</th><td>Lets go of the UF1 and TotalMix and quits.</td></tr>
@@ -997,6 +1001,67 @@ bank on the page <a href="#set-softkeys">Soft Keys</a>, and in TotalMix its key 
 them up, on the UF8 and on the UF1.</p>
 </section>
 
+<section id="moreme">
+<h2>MoreMe: headphone mixes on phones</h2>
+<p>With MoreMe on, every musician opens a web page on a phone or tablet, picks a headphone mix
+(Phones 1 to 4 in TotalMix) and sets the level, pan, mute and solo of each source in it, plus the
+mix's master level and mute. The page shows the channel names and colours from TotalMix and follows
+the phone's language: German, English, French, Italian or Rumantsch, otherwise English. Each phone can
+pick another language in the page's settings (⚙), Klingon too. Nothing is installed on the phones.</p>
+<p>MoreMe uses its own TotalMix remote, separate from the one the surfaces use. It keeps running when
+REAPER takes the surfaces over (<a href="#reasixty">ORC and Rea-Sixty</a>), so the headphone mixes
+stay on the phones during a recording.</p>
+<h3>Setting it up</h3>
+<ol class="steps">
+  <li>In TotalMix, pick a second free remote in the OSC settings, tick <em>In Use</em>, IP
+      <code>127.0.0.1</code>, <em>Port incoming</em> <code>7003</code>, <em>Port outgoing</em>
+      <code>7004</code>. These are MoreMe's numbers out of the box. TotalMix opens a new remote's
+      port when it starts, so restart TotalMix after setting it up.</li>
+  <li>In ORC, settings window, page <a href="#set-moreme">MoreMe</a>, tick
+      <em>Headphone mixes in the browser</em>. ORC makes a four-digit PIN.</li>
+  <li>Give the musicians the address and the PIN from the menu bar, or let them scan the QR code.
+      Phone and Mac have to be on the same network. A phone remembers the PIN and its mix.</li>
+</ol>
+<p>Only one program can use a remote at a time. If another program already answers on 7003 and
+7004, give MoreMe other ports, in TotalMix and on the MoreMe page alike.</p>
+<h3>Which channels the musicians see</h3>
+<p>The phones show the channels TotalMix sends: a channel you hide in TotalMix' layout does not show
+on them. ORC asks TotalMix again every three seconds, so a channel you hide or show appears or goes
+away on the phones a few seconds later. All headphone mixes show the same channels.</p>
+<h3>Taken headphones</h3>
+<p>A headphone mix in use on one phone is marked <em>taken</em> on the others. Tapping it asks
+whether to take it over; the phone that had it goes back to the list. A phone that drops off the
+network frees its mix within a minute.</p>
+<h3>Mute and solo</h3>
+<p>TotalMix has no mute for one source in one mix, so MoreMe's mute turns that source down to
+off and brings it back to the level it had. Moving the same fader in TotalMix ends the mute. Solo is
+TotalMix' own solo in that mix.</p>
+<h3>The PIN, and access from outside</h3>
+<p>Every phone has to enter the PIN before it sees anything. Five wrong PINs within ten minutes lock
+that address out for ten minutes. A new PIN sends every phone back to the PIN entry. The QR code has
+the address only, never the PIN.</p>
+<p>Inside the studio network nothing needs setting up: the musicians scan the QR code in the menu, or
+type the address next to it.</p>
+<h3>Your own address from outside</h3>
+<p>For musicians who join from elsewhere, or a phone on mobile data, MoreMe can sit behind an address
+of your own, such as <code>phones.example.com</code>:</p>
+<ol class="steps">
+  <li>Give the Mac a fixed address in your router (a DHCP reservation), so the forwarding below
+      always finds it. The Mac must stay awake while the musicians mix.</li>
+  <li>Point the name at your studio's public address in your domain's DNS.</li>
+  <li>Run a reverse proxy with HTTPS on a device the internet can reach: a NAS, a router with a
+      proxy, or a server. Forward the name to the Mac on MoreMe's port (8088 out of the box), with
+      WebSocket support switched on for <code>/ws</code>. HTTPS is not optional here: without it the
+      PIN crosses the internet as plain text.</li>
+  <li>Without opening a port in the router, a tunnel service does the same: a program on the Mac
+      keeps an encrypted connection out to the service, which serves your name.</li>
+</ol>
+<p>The lock-out after five wrong PINs counts per address. Behind a proxy every phone arrives from
+the proxy, so MoreMe reads the phone's own address from <code>X-Real-IP</code>, or from the last
+entry of <code>X-Forwarded-For</code> when that is all the proxy sends. It believes these headers
+only from a proxy inside a private network; from anywhere else they could be forged.</p>
+</section>
+
 <section id="softkeys">
 <h2>Soft-key banks</h2>
 <p>In the overview the four keys above the large screen play a bank of eight keys, four at a time.
@@ -1048,12 +1113,17 @@ key; press it again, or touch anything, to wake them.</td></tr>
 steps from dark to full. Both surfaces follow, and ORC keeps the steps.</p>
 <h3 id="set-controls">UF1</h3>
 <div class="tw"><table class="data"><tbody>
+<tr><th>Use the UF1</th><td>On out of the box. Off: ORC lets go of the UF1 and leaves it alone, so SSL
+360° or another program can have it. The menu bar says <em>off</em>. REAPER still gets it as before.</td></tr>
 <tr><th>Pot, Target, Push</th><td>The eight pot targets, bank 1 and bank 2: a control-room role
 (Main, Main B, Phones 1 to 4, Talkback) or any channel TotalMix shows this remote. The push: Submix,
 Select (put it on the fader), Mute or Nothing.</td></tr>
 <tr><th>Jog wheel</th><td>The jog wheel's target.</td></tr>
 <tr><th>Jog step</th><td>dB per step of the jog wheel.</td></tr>
 <tr><th>Pot step</th><td>dB per step of the four pots in the overview.</td></tr>
+<tr><th>V-Pot speed</th><td>How far a turn of the four pots and of the pot above the fader goes.
+1.00 out of the box, 0.50 half as far, up to 2.00. SHIFT makes it finer on top. The jog wheel keeps
+its own step.</td></tr>
 <tr><th>Transport</th><td>An action and the two lamp colours for each of the five transport keys:
 <em>Active</em> while the action is on, <em>Inactive</em> otherwise, <em>Off</em> dark.</td></tr>
 </tbody></table></div>
@@ -1062,9 +1132,12 @@ follows it. A role TotalMix has not given to any output reads <em>not assigned</
 remote cannot see reads <em>hidden</em>.</p>
 <h3 id="set-uf8">UF8</h3>
 <div class="tw"><table class="data"><tbody>
+<tr><th>Use the UF8</th><td>The same for the UF8.</td></tr>
 <tr><th>Show Main volume on change</th><td>On out of the box. A turn of the UF8's CHANNEL encoder
 puts its target, Main, on strip 8 for two seconds: name, level, fader. Its fader, V-Pot and CUT act on
 Main meanwhile, and keep it there while you use them.</td></tr>
+<tr><th>V-Pot speed</th><td>The same for the UF8's eight V-Pots, 0.10 to 2.00. The CHANNEL
+encoder keeps the jog step.</td></tr>
 <tr><th>Keys</th><td>An action and the two lamp colours for QUICK 1-3, NORM, REC, AUTO, NAV, NUDGE
 and FOCUS, as for the UF1's transport keys.</td></tr>
 </tbody></table></div>
@@ -1095,6 +1168,24 @@ seconds. Then up to eight lamps, rooms or zones, and eight scenes, each scene li
 and with the label its key shows; the label follows the scene you pick until you type one. Last, the
 V-Pot's two roles.</td></tr>
 </tbody></table></div>
+<h3 id="set-moreme">MoreMe</h3>
+<div class="tw"><table class="data"><tbody>
+<tr><th>Headphone mixes in the browser</th><td>Off out of the box. On, ORC serves the page and talks
+to TotalMix on MoreMe's remote (<a href="#moreme">MoreMe</a>). The first time it makes a PIN.</td></tr>
+<tr><th>Address</th><td>The address for the phones, while the page is served.</td></tr>
+<tr><th>PIN</th><td>4 to 8 digits. A change takes effect at once.</td></tr>
+<tr><th>Page port</th><td>The page's port, out of the box 8088.</td></tr>
+<tr><th>TotalMix send to port</th><td>The <em>Port incoming</em> of MoreMe's remote in TotalMix, out
+of the box 7003.</td></tr>
+<tr><th>TotalMix listen on port</th><td>The <em>Port outgoing</em> of that remote, out of the box
+7004. The host is the one on page General.</td></tr>
+<tr><th>Status</th><td>As in the menu bar.</td></tr>
+<tr><th>Studio name</th><td>Shown on the page. Empty out of the box.</td></tr>
+<tr><th>Logo</th><td>The picture on the page's start screen, PNG, JPG or SVG. <em>Default Logo</em>
+goes back to the one ORC comes with.</td></tr>
+<tr><th>Phones 1 to 4</th><td>The name each headphone mix has on the page. Empty: the output's name
+in TotalMix, otherwise Phones 1 to 4.</td></tr>
+</tbody></table></div>
 <h3 id="set-colours">Colours</h3>
 <p>TotalMix has nine channel colours, the UF1 and the UF8 their own palette. This page says which
 colour each TotalMix colour shows as on both, and lists the channels that wear it.</p>
@@ -1121,6 +1212,7 @@ Check that TotalMix is running and the remote is still <em>In Use</em>.</td></tr
 <h3>The UF1 line</h3>
 <div class="tw"><table class="data"><thead><tr><th>It says</th><th>What it means, what to do</th></tr></thead><tbody>
 <tr><td>held by ORC</td><td>All good.</td></tr>
+<tr><td>off</td><td><em>Use the UF1</em> is off on the settings page <a href="#set-controls">UF1</a>.</td></tr>
 <tr><td>not open: handed over to REAPER</td><td>Rea-Sixty has the UF1 while REAPER runs
 (<a href="#reasixty">ORC and Rea-Sixty</a>).</td></tr>
 <tr><td>not open, with another reason</td><td>ORC could not open the UF1. Is it connected and
@@ -1129,12 +1221,32 @@ switched on? Is SSL 360° still running? ORC tries again every two seconds.</td>
 <h3>The UF8 line</h3>
 <div class="tw"><table class="data"><thead><tr><th>It says</th><th>What it means, what to do</th></tr></thead><tbody>
 <tr><td>held by ORC</td><td>All good.</td></tr>
+<tr><td>off</td><td><em>Use the UF8</em> is off on the settings page <a href="#set-uf8">UF8</a>.</td></tr>
 <tr><td>not open: handed over to REAPER</td><td>Rea-Sixty has the UF8 while REAPER runs.</td></tr>
 <tr><td>REAPER cannot take it yet: update the REAPER extension</td><td>The Rea-Sixty in REAPER is
 older than this ORC and may not pick the UF8 up. Update Rea-Sixty.</td></tr>
 <tr><td>not open, with another reason</td><td>Is the UF8 connected and switched on? Is SSL 360°
 still running? ORC tries again every two seconds.</td></tr>
 </tbody></table></div>
+<h3>The MoreMe line</h3>
+<div class="tw"><table class="data"><thead><tr><th>It says</th><th>What it means, what to do</th></tr></thead><tbody>
+<tr><td>off</td><td>MoreMe is off (page MoreMe).</td></tr>
+<tr><td>no phones connected, 1 phone connected, … phones connected</td><td>All good: the page is
+served, TotalMix answers, and this many phones are past the PIN.</td></tr>
+<tr><td>TotalMix does not answer</td><td>MoreMe's remote is not set up in TotalMix, the ports do
+not match, or TotalMix was not restarted after setting it up (<a href="#moreme">MoreMe</a>). The
+phones say the same.</td></tr>
+<tr><td>TotalMix port in use by another program</td><td>Another program listens on MoreMe's
+<em>TotalMix listen on port</em>. Pick another, in TotalMix and on the MoreMe page.</td></tr>
+<tr><td>port … is in use by another program</td><td>Another program uses the page port. Pick
+another <em>Page port</em>.</td></tr>
+<tr><td>no PIN set</td><td>The PIN file was removed. Untick and tick MoreMe again for a new one.</td></tr>
+<tr><td>could not open a socket</td><td>macOS refused ORC a network connection. Quit ORC and
+start it again.</td></tr>
+</tbody></table></div>
+<p>The phone shows <em>Connecting to ORC</em> when it cannot reach the Mac: wrong network, wrong
+address, or MoreMe is off. The first time a phone connects, macOS may ask whether ORC may accept
+incoming connections; allow it.</p>
 <h3>No level meters on the UF1</h3>
 <p>Switch <em>Send Peak Level</em> on for ORC's remote in TotalMix.</p>
 </section>
@@ -1148,6 +1260,10 @@ and the STRIP pages.</td></tr>
 transport keys.</td></tr>
 <tr><th><code>~/Library/Application Support/ORC/modes</code></th><td>Hue, DynaMount and OBS, one file
 per value with the time of its last change beside it, and where the stands stand.</td></tr>
+<tr><th><code>~/Library/Application Support/ORC/moreme.json</code></th><td>MoreMe's settings, and
+next to it the logo, if you picked one.</td></tr>
+<tr><th><code>~/Library/Application Support/ORC/moreme.pin</code></th><td>MoreMe's PIN, readable
+by your user only.</td></tr>
 <tr><th><code>/tmp/orc.log</code></th><td>ORC's log. Useful with a bug report.</td></tr>
 </tbody></table></div>
 <p>To start from scratch, quit ORC and remove the folder <code>~/Library/Application Support/ORC</code>.</p>
