@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ORC Manual</title>
-<meta name="description" content="ORC 1.5.0: the SSL UF1 as a remote control for RME TotalMix FX on the Mac.">
+<meta name="description" content="ORC 1.5.1: the SSL UF1 as a remote control for RME TotalMix FX on the Mac.">
 <!--
   ⇨ SOURCE OF THE ORC MANUAL. Built by extension/tools/orc_manual.py, which
   fills every double-brace token and GEN block from the code ORC runs and fails when a
@@ -92,7 +92,7 @@ svg a:hover .knob, svg a:focus .knob { fill: var(--accent); }
 <div class="wrap">
 <nav class="toc" aria-label="Contents">
   <h1>ORC</h1>
-  <p class="ver">Open Remote Control · version 1.5.0</p>
+  <p class="ver">Open Remote Control · version 1.5.1</p>
   <input id="q" type="search" placeholder="Search the manual" aria-label="Search the manual">
   <ol>
     <li><a href="#what">What ORC does</a></li>
@@ -204,7 +204,7 @@ handover. <em>Import from REAPER</em> on the <a href="#set-modes">UF8 Modes</a> 
 <p>ORC has no Dock icon and no window of its own until you open the settings. Its menu bar item
 holds these lines:</p>
 <div class="tw"><table class="data"><tbody>
-<tr><th>ORC 1.5.0</th><td>The version. When ORC does not run from Applications, the folder
+<tr><th>ORC 1.5.1</th><td>The version. When ORC does not run from Applications, the folder
 it runs from follows, so a second copy is told apart.</td></tr>
 <tr><th>UF1</th><td><em>held by ORC</em> and the unit's serial number, <em>off</em>, or <em>not open</em> and the
 reason ORC was given. ORC tries again every two seconds, so a UF1 plugged in later or let go by
@@ -1015,7 +1015,8 @@ stay on the phones during a recording.</p>
 <ol class="steps">
   <li>In TotalMix, pick a second free remote in the OSC settings, tick <em>In Use</em>, IP
       <code>127.0.0.1</code>, <em>Port incoming</em> <code>7003</code>, <em>Port outgoing</em>
-      <code>7004</code>. These are MoreMe's numbers out of the box. TotalMix opens a new remote's
+      <code>7004</code>. These are MoreMe's numbers out of the box. For the level meters on the
+      phones, switch <em>Send Peak Level</em> on for this remote too. TotalMix opens a new remote's
       port when it starts, so restart TotalMix after setting it up.</li>
   <li>In ORC, settings window, page <a href="#set-moreme">MoreMe</a>, tick
       <em>Headphone mixes in the browser</em>. ORC makes a four-digit PIN.</li>
@@ -1032,6 +1033,14 @@ away on the phones a few seconds later. All headphone mixes show the same channe
 <p>A headphone mix in use on one phone is marked <em>taken</em> on the others. Tapping it asks
 whether to take it over; the phone that had it goes back to the list. A phone that drops off the
 network frees its mix within a minute.</p>
+<h3>Level meters</h3>
+<p>Each source shows its level at its fader, and the master shows the headphone output, the
+level that reaches the headphones. A stereo channel has two bars. The source meters show the source's own
+signal, wherever its fader stands in this mix: TotalMix reports no level per mix. The meters
+need <em>Send Peak Level</em> on MoreMe's remote; without it the bars stay empty. In the page's
+settings (⚙) each phone picks <em>Bars</em>, <em>In the fader</em> or <em>Off</em>. In the fader,
+the level lights the fader's track in the channel's colour, strong up to the fader and pale beyond
+it, red near 0 dB.</p>
 <h3>Mute and solo</h3>
 <p>TotalMix has no mute for one source in one mix, so MoreMe's mute turns that source down to
 off and brings it back to the level it had. Moving the same fader in TotalMix ends the mute. Solo is
