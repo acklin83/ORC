@@ -46,7 +46,8 @@ The [manual](https://acklin83.github.io/ORC/#setup) has the details.
 If you use [Rea-Sixty](https://github.com/acklin83/Rea-Sixty) in REAPER on the same Mac, REAPER
 takes the UF1 and the UF8 over from ORC when it starts and hands them back when it quits, and Hue,
 DynaMount and OBS settings stay in step between the two. This needs Rea-Sixty 0.8.0 or later
-(0.6.1 or later for the UF1 alone). See [ORC and Rea-Sixty](https://acklin83.github.io/ORC/#reasixty) in the manual.
+(0.6.1 or later for the UF1 alone), and 0.9.0 for ORC's assigned submix keys and the submix bank
+while REAPER has the UF8. See [ORC and Rea-Sixty](https://acklin83.github.io/ORC/#reasixty) in the manual.
 
 ## Problems
 
