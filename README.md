@@ -11,7 +11,8 @@ With MoreMe, musicians mix their own headphones on a phone or tablet: each picks
 and sets level, pan, mute and solo of every source in that mix, in a web page. Nothing is installed
 on the phones.
 Each musician can also get a link of their own: their output, their faders, what they may
-change.
+change. Channels can share a fader in a group, say all the drums, and it opens to a thinner fader
+for each of them.
 
 ORC is free.
 

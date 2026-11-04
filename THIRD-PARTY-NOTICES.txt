@@ -1,4 +1,4 @@
-ORC 1.6.1
+ORC 1.6.2
 Copyright (c) 2026 Frank Acklin
 
 ORC is free. Its source code is published under the MIT License as part of
