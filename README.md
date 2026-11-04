@@ -10,7 +10,7 @@ Windows, and needs no DAW.
 With MoreMe, musicians mix their own headphones on a phone or tablet: each picks Phones 1 to 4
 and sets level, pan, mute and solo of every source in that mix, in a web page. Nothing is installed
 on the phones.
-Studio Control gives each musician a link of their own: their output, their faders, what they may
+Each musician can also get a link of their own: their output, their faders, what they may
 change.
 
 ORC is free.
