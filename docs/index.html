@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ORC Manual</title>
-<meta name="description" content="ORC 1.6.2: the SSL UF1 as a remote control for RME TotalMix FX on the Mac.">
+<meta name="description" content="ORC 1.6.3: the SSL UF1 as a remote control for RME TotalMix FX on the Mac.">
 <!--
   ⇨ SOURCE OF THE ORC MANUAL. Built by extension/tools/orc_manual.py, which
   fills every double-brace token and GEN block from the code ORC runs and fails when a
@@ -94,7 +94,7 @@ svg a:hover .knob, svg a:focus .knob { fill: var(--accent); }
 <div class="wrap">
 <nav class="toc" aria-label="Contents">
   <h1>ORC</h1>
-  <p class="ver">Open Remote Control · version 1.6.2</p>
+  <p class="ver">Open Remote Control · version 1.6.3</p>
   <input id="q" type="search" placeholder="Search the manual" aria-label="Search the manual">
   <ol>
     <li><a href="#what">What ORC does</a></li>
@@ -174,7 +174,7 @@ Under Windows SSL 360° loses the surfaces for good once ORC's USB driver is ins
 <section id="windows">
 <h2>ORC under Windows</h2>
 <ol class="steps">
-  <li>Run <code>ORC-1.6.2-Setup.exe</code>. ORC has no code signature yet, so SmartScreen warns
+  <li>Run <code>ORC-1.6.3-Setup.exe</code>. ORC has no code signature yet, so SmartScreen warns
       about an unknown publisher: More info, Run anyway.</li>
   <li>Start ORC. Windows may put its icon in the hidden part of the taskbar, behind the small arrow.
       Drag it out if you want it in view.</li>
@@ -242,7 +242,7 @@ handover. <em>Import from REAPER</em> on the <a href="#set-modes">UF8 Modes</a> 
 <p>ORC has no Dock icon and no window of its own until you open the settings. Its menu bar item
 shows these lines:</p>
 <div class="tw"><table class="data"><tbody>
-<tr><th>ORC 1.6.2</th><td>The version. When ORC does not run from Applications, the folder
+<tr><th>ORC 1.6.3</th><td>The version. When ORC does not run from Applications, the folder
 it runs from follows, so a second copy is told apart.</td></tr>
 <tr><th>UF1</th><td><em>held by ORC</em> and the unit's serial number, <em>off</em>, or <em>not open</em> and the
 reason ORC was given. ORC tries again every two seconds, so a UF1 plugged in later or let go by
@@ -264,7 +264,8 @@ address as a QR code to scan. A click on the address copies it. <em>MoreMe…</e
 <h2>Rows, channels and the submix</h2>
 <p>TotalMix has three rows of channels: inputs, playbacks and outputs. ORC adds a fourth,
 <strong>FX</strong>, below the outputs, with two channels: Reverb and Echo. The nav cross steps
-from row to row, top to bottom and round again.</p>
+from row to row, top to bottom and round again. A key can also go straight to a row, with the
+<a href="#actions">actions</a> for the four rows.</p>
 <p>A row on the UF1 shows the channels TotalMix shows, in TotalMix' order. Hide a channel in TotalMix,
 or load a layout without it, and ORC skips it a few seconds later. On the output row the control room comes first:
 Phones 1 to 4, Main B, Main, then the other outputs. A channel that carries a control-room role is
@@ -483,7 +484,7 @@ Controls that step through a list, such as an EQ type, still move one entry at a
 
 <div class="ctl" id="c-360" data-btn="k360">
 <h3>360</h3>
-<p>Opens the settings window. Press it again to close it.</p>
+<p>Opens the settings window. Press it again to close it. Lit while the window is open.</p>
 </div>
 
 <div class="ctl" id="c-idle" data-btn="kFlip kScrub kMode kTLeft kTRight kCycle kClick kT1 kT2">
@@ -777,7 +778,7 @@ them back at once.</p>
   <text class="lb" x="831" y="51">3</text>
   <text class="lb" x="887" y="51">4</text>
   <text class="lb" x="943" y="51">5</text>
-  <a href="#u-idle">
+  <a href="#u-pan">
   <rect class="k" x="806" y="70" width="78" height="18" rx="3"/>
   </a>
   <text class="lb" x="845" y="83">PAN</text>
@@ -877,7 +878,7 @@ position. The bottom line: X, Y and R, and <code>OFF</code> when the stand does 
 <div class="ctl" id="u-vpot" data-uf8="kVpotPush1">
 <h3>V-Pots</h3>
 <div class="tw"><table class="data"><thead><tr><th>Mode, row</th><th>Turn</th><th>Push</th></tr></thead><tbody>
-<tr><td>TotalMix, input with a preamp</td><td>Gain</td><td>0 dB</td></tr>
+<tr><td>TotalMix, input with a preamp</td><td>Gain, with <a href="#u-pan">PAN</a> the pan in the current submix</td><td>48V on and off where the channel has it, otherwise nothing; the line under the fader shows 48V while on. With PAN centre</td></tr>
 <tr><td>TotalMix, other inputs, playback</td><td>Pan in the current submix</td><td>Centre</td></tr>
 <tr><td>TotalMix, output</td><td>The output's own pan</td><td>Centre</td></tr>
 <tr><td>TotalMix, FX</td><td>Width, 0 (mono) to 1 (stereo)</td><td>Full stereo</td></tr>
@@ -888,6 +889,12 @@ position. The bottom line: X, Y and R, and <code>OFF</code> when the stand does 
 <tr><td>DynaMount</td><td>Rotation. The stand turns about a second after you stop.</td><td>Nothing</td></tr>
 </tbody></table></div>
 <p>In TotalMix, after a push the same V-Pot ignores turning for 250 ms, as on the UF1.</p>
+</div>
+
+<div class="ctl" id="u-pan" data-uf8="kPan">
+<h3>PAN</h3>
+<p>In TotalMix: the V-Pots of inputs with a preamp turn the pan in the current submix, press it again
+for the gain. Lit while on. In Hue and DynaMount it does nothing and stays dark.</p>
 </div>
 
 <div class="ctl" id="u-solocutsel" data-uf8="kStripKeys">
@@ -918,8 +925,13 @@ is nearest. The stand moves when you let go of the fader.</td></tr>
 <h3>SEND / PLUG-IN 1-8</h3>
 <p>In TotalMix: each key picks one output as the <a href="#rows">submix</a>, any output or control-room
 role, set on the page <a href="#set-uf8">UF8</a>. Out of the box TotalMix' control-room order: 1-4
-Phones 1-4, 5 Main B, 6 Main, 7 and 8 empty. The key of the submix in play is lit. A key whose output
-is empty, hidden or not assigned is dark and does nothing.</p>
+Phones 1-4, 5 Main B, 6 Main, 7 and 8 empty. The key of the submix in play is lit, and on the output
+row the SEL of that output. A key whose output is empty, hidden or not assigned is dark and does
+nothing.</p>
+<p>With Link A/B on in TotalMix, Main and Main B light together. Inputs and playbacks still write to
+the one submix you picked.</p>
+<p>The list has what TotalMix shows in its Channel Layout. ALL in TotalMix shows hidden channels on the
+computer only: to assign an output, unhide it in every layout you use.</p>
 <p>FINE and a key <a href="#cue">cues</a> its output, the submix stays. The lamp turns yellow; the same
 press switches it off. In Hue and DynaMount the keys do nothing.</p>
 </div>
@@ -997,12 +1009,12 @@ every mode.</p>
 
 <div class="ctl" id="u-360" data-uf8="kBtn360">
 <h3>360</h3>
-<p>Opens the settings window. Press it again to close it.</p>
+<p>Opens the settings window. Press it again to close it. Lit while the window is open.</p>
 </div>
 
 <div class="ctl" id="u-idle">
 <h3>Keys ORC leaves alone</h3>
-<p>CHANNEL beside PLUG-IN, PAN and the six automation keys do nothing in ORC.</p>
+<p>CHANNEL beside PLUG-IN and the six automation keys do nothing in ORC.</p>
 </div>
 </div>
 
@@ -1175,7 +1187,7 @@ yourself or one of four lists:</p>
 <ul>
   <li><strong>TotalMix snapshots</strong>: the eight snapshots by the names TotalMix gives them. A press
       loads one. The key of the active snapshot is lit.</li>
-  <li><strong>TotalMix layouts</strong>: the eight layouts. A press loads one; the one loaded last is lit.</li>
+  <li><strong>TotalMix layouts</strong>: the six layouts, on keys 1-6. A press loads one; the one loaded last is lit.</li>
   <li><strong>OBS scenes</strong>: the first eight scenes OBS reports, in OBS's order. A press switches
       to one; the scene on air is lit. Needs OBS set up on the page <a href="#set-modes">UF8 Modes</a>.</li>
   <li><strong>TotalMix submixes</strong>: eight outputs you pick, each key showing the output's name from
@@ -1185,14 +1197,14 @@ yourself or one of four lists:</p>
 <p>On the UF8, V-POT to 5 pick banks 1 to 6, and its eight soft keys show a bank's two halves at once
 (<a href="#u-soft">soft keys</a>).</p>
 <p>Out of the box:</p>
-<ul><li><strong>Bank 1</strong>: 1 <code>Dim</code> (Dim main output), 2 <code>Mono</code> (Main output mono), 3 <code>Speaker B</code> (Speaker B), 4 <code>Talkback</code> (Talkback), 5 <code>Ext In</code> (External input), 6 <code>Main</code> (Main on the fader), 7 <code>TotalMix</code> (Show the TotalMix window).</li><li><strong>Bank 2</strong>: TotalMix' eight snapshots, keys 1 to 4 on the first half and 5 to 8 on the second.</li><li><strong>Bank 3</strong>: TotalMix' eight layouts, keys 1 to 4 on the first half and 5 to 8 on the second.</li></ul>
+<ul><li><strong>Bank 1</strong>: 1 <code>Dim</code> (Dim main output), 2 <code>Mono</code> (Main output mono), 3 <code>Speaker B</code> (Speaker B), 4 <code>Talkback</code> (Talkback), 5 <code>Ext In</code> (External input), 6 <code>Main</code> (Main on the fader), 7 <code>TotalMix</code> (Show the TotalMix window).</li><li><strong>Bank 2</strong>: TotalMix' eight snapshots, keys 1 to 4 on the first half and 5 to 8 on the second.</li><li><strong>Bank 3</strong>: TotalMix' six layouts, keys 1 to 4 on the first half and 5 and 6 on the second.</li></ul>
 <p>Every bank, key, label and action is set on the settings page <a href="#set-softkeys">Soft Keys</a>.
 The transport keys are on the page <a href="#set-controls">UF1</a>, the UF8's own keys on the page
 <a href="#set-uf8">UF8</a>.</p>
 <h3 id="actions">Actions</h3>
-<p>What a soft key or a transport key can do, 23 actions. A <em>switch</em> turns something
+<p>What a soft key or a transport key can do, 27 actions. A <em>switch</em> turns something
 on and off and its key is lit while on; a <em>press</em> does one thing each time.</p>
-<div class="tw"><table class="data"><thead><tr><th>Action</th><th>Key label</th><th>Kind</th><th>What it does</th></tr></thead><tbody><tr><td>Ask TotalMix again</td><td><code>Ask TMix</code></td><td>press</td><td>Asks TotalMix for its whole state again, as the button Ask TotalMix again on ORC&#x27;s General page does. For when faders or switches do not follow after TotalMix was started.</td></tr><tr><td>Brightness Both (LEDs+LCDs) +</td><td><code>Bright +</code></td><td>press</td><td>LEDs and displays together, one step brighter.</td></tr><tr><td>Brightness Both (LEDs+LCDs) -</td><td><code>Bright -</code></td><td>press</td><td>LEDs and displays together, one step dimmer.</td></tr><tr><td>Brightness LCDs +</td><td><code>LCD +</code></td><td>press</td><td>Displays one step brighter.</td></tr><tr><td>Brightness LCDs -</td><td><code>LCD -</code></td><td>press</td><td>Displays one step dimmer.</td></tr><tr><td>Brightness LEDs +</td><td><code>LED +</code></td><td>press</td><td>Button LEDs one step brighter, on every connected surface.</td></tr><tr><td>Brightness LEDs -</td><td><code>LED -</code></td><td>press</td><td>Button LEDs one step dimmer.</td></tr><tr><td>Dim main output</td><td><code>Dim</code></td><td>switch</td><td>Dims TotalMix&#x27; Main output by the Dim amount set in TotalMix, or lifts the dim. The lamp follows what TotalMix reports.</td></tr><tr><td>DuRec next file</td><td><code>DuRec Next</code></td><td>press</td><td>Goes to the next DuRec file.</td></tr><tr><td>DuRec pause</td><td><code>DuRec Pause</code></td><td>press</td><td>Pauses DuRec.</td></tr><tr><td>DuRec play</td><td><code>DuRec Play</code></td><td>press</td><td>Plays the current DuRec file.</td></tr><tr><td>DuRec previous file</td><td><code>DuRec Prev</code></td><td>press</td><td>Goes to the previous DuRec file.</td></tr><tr><td>DuRec record</td><td><code>DuRec Rec</code></td><td>press</td><td>Starts a DuRec recording.</td></tr><tr><td>DuRec stop</td><td><code>DuRec Stop</code></td><td>press</td><td>Stops DuRec.</td></tr><tr><td>External input</td><td><code>Ext In</code></td><td>switch</td><td>Switches TotalMix&#x27; Main output to the external input and back.</td></tr><tr><td>Link Main B to Main</td><td><code>Link A/B</code></td><td>switch</td><td>Links Main B&#x27;s volume to Main in TotalMix&#x27; control room, or separates them. The lamp follows what TotalMix reports.</td></tr><tr><td>Main on the fader</td><td><code>Main</code></td><td>press</td><td>Puts TotalMix&#x27; Main output on the UF1 fader in the RME side-car. The lamp is lit while Main is on the fader.</td></tr><tr><td>Main output mono</td><td><code>Mono</code></td><td>switch</td><td>Switches TotalMix&#x27; Main output to mono and back.</td></tr><tr><td>Mute FX</td><td><code>Mute FX</code></td><td>switch</td><td>Mutes TotalMix&#x27; reverb and echo on the Main output, or lets them through again. The lamp follows what TotalMix reports.</td></tr><tr><td>Show the TotalMix window</td><td><code>TotalMix</code></td><td>switch</td><td>Shows or hides the TotalMix window. TotalMix says nothing about its own window, so the lamp is what we last sent.</td></tr><tr><td>Sleep the surface now</td><td><code>Sleep</code></td><td>switch</td><td>Darkens every connected surface at once. Press again, or touch anything on any surface, to bring them back; that first press or turn only wakes and does nothing else.</td></tr><tr><td>Speaker B</td><td><code>Speaker B</code></td><td>switch</td><td>Switches TotalMix&#x27; Main output between Main and Speaker B.</td></tr><tr><td>Talkback</td><td><code>Talkback</code></td><td>switch</td><td>Talkback in TotalMix, on or off.</td></tr></tbody></table></div>
+<div class="tw"><table class="data"><thead><tr><th>Action</th><th>Key label</th><th>Kind</th><th>What it does</th></tr></thead><tbody><tr><td>Ask TotalMix again</td><td><code>Ask TMix</code></td><td>press</td><td>Asks TotalMix for its whole state again, as the button Ask TotalMix again on ORC&#x27;s General page does. For when faders or switches do not follow after TotalMix was started.</td></tr><tr><td>Brightness Both (LEDs+LCDs) +</td><td><code>Bright +</code></td><td>press</td><td>LEDs and displays together, one step brighter.</td></tr><tr><td>Brightness Both (LEDs+LCDs) -</td><td><code>Bright -</code></td><td>press</td><td>LEDs and displays together, one step dimmer.</td></tr><tr><td>Brightness LCDs +</td><td><code>LCD +</code></td><td>press</td><td>Displays one step brighter.</td></tr><tr><td>Brightness LCDs -</td><td><code>LCD -</code></td><td>press</td><td>Displays one step dimmer.</td></tr><tr><td>Brightness LEDs +</td><td><code>LED +</code></td><td>press</td><td>Button LEDs one step brighter, on every connected surface.</td></tr><tr><td>Brightness LEDs -</td><td><code>LED -</code></td><td>press</td><td>Button LEDs one step dimmer.</td></tr><tr><td>Dim main output</td><td><code>Dim</code></td><td>switch</td><td>Dims TotalMix&#x27; Main output by the Dim amount set in TotalMix, or lifts the dim. The lamp follows what TotalMix reports.</td></tr><tr><td>DuRec next file</td><td><code>DuRec Next</code></td><td>press</td><td>Goes to the next DuRec file.</td></tr><tr><td>DuRec pause</td><td><code>DuRec Pause</code></td><td>press</td><td>Pauses DuRec.</td></tr><tr><td>DuRec play</td><td><code>DuRec Play</code></td><td>press</td><td>Plays the current DuRec file.</td></tr><tr><td>DuRec previous file</td><td><code>DuRec Prev</code></td><td>press</td><td>Goes to the previous DuRec file.</td></tr><tr><td>DuRec record</td><td><code>DuRec Rec</code></td><td>press</td><td>Starts a DuRec recording.</td></tr><tr><td>DuRec stop</td><td><code>DuRec Stop</code></td><td>press</td><td>Stops DuRec.</td></tr><tr><td>External input</td><td><code>Ext In</code></td><td>switch</td><td>Switches TotalMix&#x27; Main output to the external input and back.</td></tr><tr><td>FX row</td><td><code>FX</code></td><td>press</td><td>Puts reverb and echo on the surfaces. The lamp is lit while they are there.</td></tr><tr><td>Input row</td><td><code>Inputs</code></td><td>press</td><td>Puts TotalMix&#x27; input row on the surfaces. The lamp is lit while it is there.</td></tr><tr><td>Link Main B to Main</td><td><code>Link A/B</code></td><td>switch</td><td>Links Main B&#x27;s volume to Main in TotalMix&#x27; control room, or separates them. The lamp follows what TotalMix reports.</td></tr><tr><td>Main on the fader</td><td><code>Main</code></td><td>press</td><td>Puts TotalMix&#x27; Main output on the UF1 fader in the RME side-car. The lamp is lit while Main is on the fader.</td></tr><tr><td>Main output mono</td><td><code>Mono</code></td><td>switch</td><td>Switches TotalMix&#x27; Main output to mono and back.</td></tr><tr><td>Mute FX</td><td><code>Mute FX</code></td><td>switch</td><td>Mutes TotalMix&#x27; reverb and echo on the Main output, or lets them through again. The lamp follows what TotalMix reports.</td></tr><tr><td>Output row</td><td><code>Outputs</code></td><td>press</td><td>Puts TotalMix&#x27; output row on the surfaces. The lamp is lit while it is there.</td></tr><tr><td>Playback row</td><td><code>Playback</code></td><td>press</td><td>Puts TotalMix&#x27; playback row on the surfaces. The lamp is lit while it is there.</td></tr><tr><td>Show the TotalMix window</td><td><code>TotalMix</code></td><td>switch</td><td>Shows or hides the TotalMix window. TotalMix says nothing about its own window, so the lamp is what we last sent.</td></tr><tr><td>Sleep the surface now</td><td><code>Sleep</code></td><td>switch</td><td>Darkens every connected surface at once. Press again, or touch anything on any surface, to bring them back; that first press or turn only wakes and does nothing else.</td></tr><tr><td>Speaker B</td><td><code>Speaker B</code></td><td>switch</td><td>Switches TotalMix&#x27; Main output between Main and Speaker B.</td></tr><tr><td>Talkback</td><td><code>Talkback</code></td><td>switch</td><td>Talkback in TotalMix, on or off.</td></tr></tbody></table></div>
 </section>
 
 <section id="settings">
