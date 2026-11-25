@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ORC Manual</title>
-<meta name="description" content="ORC 1.8.0: the SSL UF1 as a remote control for RME TotalMix FX on the Mac.">
+<meta name="description" content="ORC 1.8.1: the SSL UF1 as a remote control for RME TotalMix FX on the Mac.">
 <!--
   ⇨ SOURCE OF THE ORC MANUAL. Built by extension/tools/orc_manual.py, which
   fills every double-brace token and GEN block from the code ORC runs and fails when a
@@ -94,7 +94,7 @@ svg a:hover .knob, svg a:focus .knob { fill: var(--accent); }
 <div class="wrap">
 <nav class="toc" aria-label="Contents">
   <h1>ORC</h1>
-  <p class="ver">Open Remote Control · version 1.8.0</p>
+  <p class="ver">Open Remote Control · version 1.8.1</p>
   <input id="q" type="search" placeholder="Search the manual" aria-label="Search the manual">
   <ol>
     <li><a href="#what">What ORC does</a></li>
@@ -175,7 +175,7 @@ Under Windows SSL 360° loses the surfaces for good once ORC's USB driver is ins
 <section id="windows">
 <h2>ORC under Windows</h2>
 <ol class="steps">
-  <li>Run <code>ORC-1.8.0-Setup.exe</code>. ORC has no code signature yet, so SmartScreen warns
+  <li>Run <code>ORC-1.8.1-Setup.exe</code>. ORC has no code signature yet, so SmartScreen warns
       about an unknown publisher: More info, Run anyway.</li>
   <li>Start ORC. Windows may put its icon in the hidden part of the taskbar, behind the small arrow.
       Drag it out if you want it in view.</li>
@@ -243,7 +243,7 @@ handover. <em>Import from REAPER</em> on the <a href="#set-modes">UF8 Modes</a> 
 <p>ORC has no Dock icon and no window of its own until you open the settings. Its menu bar item
 shows these lines:</p>
 <div class="tw"><table class="data"><tbody>
-<tr><th>ORC 1.8.0</th><td>The version. When ORC does not run from Applications, the folder
+<tr><th>ORC 1.8.1</th><td>The version. When ORC does not run from Applications, the folder
 it runs from follows, so a second copy is told apart.</td></tr>
 <tr><th>UF1</th><td><em>held by ORC</em> and the unit's serial number, <em>off</em>, or <em>not open</em> and the
 reason ORC was given. ORC tries again every two seconds, so a UF1 plugged in later or let go by
@@ -375,6 +375,7 @@ writes: <code>&gt; Main</code> for an input or a playback (the <a href="#rows">s
 <tr><td>Output</td><td>The output's own pan</td><td>Centre</td></tr>
 <tr><td>FX</td><td>Width, 0 (mono) to 1 (stereo)</td><td>Full stereo</td></tr>
 </tbody></table></div>
+<p>A pan moves in whole percent and stops on the centre on its way to the other side.</p>
 </div>
 
 <div class="ctl" id="c-fader">
@@ -892,7 +893,8 @@ position. The bottom line: X, Y and R, and <code>OFF</code> when the stand does 
 <a href="#set-modes">UF8 Modes</a>)</td><td>White on and off</td></tr>
 <tr><td>DynaMount</td><td>Rotation. The stand turns about a second after you stop.</td><td>Nothing</td></tr>
 </tbody></table></div>
-<p>In TotalMix, after a push the same V-Pot ignores turning for 250 ms, as on the UF1.</p>
+<p>In TotalMix, after a push the same V-Pot ignores turning for 250 ms, as on the UF1.
+A pan moves in whole percent and stops on the centre on its way to the other side.</p>
 </div>
 
 <div class="ctl" id="u-pan" data-uf8="kPan">
@@ -1210,6 +1212,8 @@ yourself or one of four lists:</p>
       TotalMix. A press makes it the <a href="#rows">submix</a>, which is lit. SHIFT, or FINE on the UF8,
       and a press <a href="#cue">cues</a> it, and the key turns yellow.</li>
 </ul>
+<p>The names of snapshots and layouts come from TotalMix' settings file of the interface TotalMix
+shows, since OSC does not send them. A rename appears once TotalMix has saved that file.</p>
 <p>On the UF8, V-POT to 5 pick banks 1 to 6, and its eight soft keys show a bank's two halves at once
 (<a href="#u-soft">soft keys</a>).</p>
 <p>Out of the box:</p>
@@ -1458,11 +1462,13 @@ by your user only.</td></tr>
 snapshots of the performers.</td></tr>
 <tr><th><code>~/Library/Application Support/ORC/profiles</code></th><td>The settings as they were
 before each profile import, one <code>.orcprofile</code> file each (<a href="#set-connection">Profiles</a>).</td></tr>
+<tr><th><code>/tmp/rme_pan.log</code></th><td>Every change the UF1 and the UF8 make to an output's pan,
+with the control that made it. Useful when a pan moved and nobody knows why.</td></tr>
 <tr><th><code>/tmp/orc.log</code></th><td>ORC's log. Useful with a bug report.</td></tr>
 </tbody></table></div>
 <p>To start from scratch, quit ORC and remove the folder <code>~/Library/Application Support/ORC</code>.</p>
 <p>Under Windows the same files are in <code>%APPDATA%\ORC</code>, readable by your user only, and the
-log is <code>%TEMP%\orc.log</code>. The settings window's browser data is in
+logs are <code>%TEMP%\orc.log</code> and <code>%TEMP%\rme_pan.log</code>. The settings window's browser data is in
 <code>%LOCALAPPDATA%\ORC\WebView2</code>.</p>
 </section>
 
